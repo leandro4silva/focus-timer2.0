@@ -1,0 +1,133 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+:root{
+    font-size: 62.5%;
+    /*colors */
+
+    --bg-cards-default: hsl(240, 9%, 89%);
+    --bg-card-rain: hsl(194, 97%, 31%);
+    --bg-card-florest: hsl(120, 51%, 42%);
+    --bg-card-coffee: hsl(350, 46%, 73%);
+    --bg-card-fire: hsl(0, 50%, 47%);
+}
+
+body{
+    font-family: 'Roboto',sans-serif;
+    font-size: 1.6rem;
+}
+
+.hide{
+    display: none;
+}
+
+main.container{
+    width: min(50rem, 100%);
+    margin-inline: auto;
+    padding-inline: 2.4rem;
+    height: 100vh;
+}
+
+.col-a{
+    padding-top: 7rem;
+    margin-bottom: 7rem;
+}
+
+.col-a .timer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.7rem;
+}
+
+.col-a .timer span{
+    font-size: clamp(8rem, 8rem + 5vw, 12.6rem);
+}
+
+.col-a .control-buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+}
+
+.control-buttons button svg{
+    width: clamp(2.5rem, 2.5rem + 3vw, 4.8rem);
+}
+
+#set path,
+#pause path{
+    fill: #323238;
+}
+
+#pause rect{
+    fill: #323238;
+}
+
+.col-b .cards{
+    display: grid;
+    grid-template-areas: 'A A'
+                         'B B';
+    gap: 3.2rem;
+}
+
+.cards button{
+    background-color: var(--bg-cards-default);
+    padding: clamp(2rem, 2rem + 3vw, 4.6rem);
+    border-radius: 2.4rem;
+}
+
+button.active path{
+    fill: white;
+}
+
+button#rain.active{
+    background-color: var(--bg-card-rain);
+}
+
+button#florest.active{
+    background-color: var(--bg-card-florest);
+}
+
+button#coffee.active{
+    background-color: var(--bg-card-coffee);
+}
+
+button#fire.active{
+    background-color: var(--bg-card-fire);
+}
+
+
+@media (min-width: 1024px) {
+    main.container{
+        width: min(112rem, 100%);
+        padding-inline: 12rem;
+        display: grid;
+        grid-template-areas: 'A B';
+        gap: 19.2rem;
+        margin-top: -3rem;
+    }
+
+    .col-a{
+        grid-area: A;
+        justify-self: flex-start;
+        align-self: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .col-b{
+        grid-area: B;
+        align-self: center;
+    }
+
+}
