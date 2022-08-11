@@ -19,12 +19,28 @@ button{
     --bg-card-florest: hsl(120, 51%, 42%);
     --bg-card-coffee: hsl(350, 46%, 73%);
     --bg-card-fire: hsl(0, 50%, 47%);
+
+
+    --text-color-dark: hsl(0, 0%, 100%);
+    --text-color-light: #0a0a0ad7;
+
+    --bg-dark: hsl(240, 5%, 7%);
+    --bg-default-dark: hsl(240, 6%, 17%);
+    --bg-icon-dark: hsl(240, 7%, 78%);
 }
 
 body{
     font-family: 'Roboto',sans-serif;
     font-size: 1.6rem;
 }
+
+
+.mode{
+    position: absolute;
+    top: 4rem;
+    right: 2.4rem;
+}
+
 
 .hide{
     display: none;
@@ -35,6 +51,7 @@ main.container{
     margin-inline: auto;
     padding-inline: 2.4rem;
     height: 100vh;
+    margin-top: 7rem;
 }
 
 .col-a{
@@ -51,6 +68,7 @@ main.container{
 
 .col-a .timer span{
     font-size: clamp(8rem, 8rem + 5vw, 12.6rem);
+    color: var(--text-color-light);
 }
 
 .col-a .control-buttons{
@@ -64,6 +82,7 @@ main.container{
     width: clamp(2.5rem, 2.5rem + 3vw, 4.8rem);
 }
 
+
 #set path,
 #pause path{
     fill: #323238;
@@ -73,37 +92,120 @@ main.container{
     fill: #323238;
 }
 
-.col-b .cards{
+
+.col-b .cards-buttons{
     display: grid;
     grid-template-areas: 'A A'
                          'B B';
     gap: 3.2rem;
 }
 
-.cards button{
+.card{
     background-color: var(--bg-cards-default);
-    padding: clamp(2rem, 2rem + 3vw, 4.6rem);
+    padding-inline: clamp(1rem, 1rem + 3vw, 2.4rem);
+    padding-top: 2.4rem;
+    padding-bottom: 3rem;
     border-radius: 2.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.3rem;
+    align-items: center;
+    cursor: pointer;
+
 }
 
-button.active path{
+.card button{
+
+    width: 100%;
+    height: 8rem;
+}
+
+.card .slider{
+    -webkit-appearance: none;
+    width: 9rem;
+    height: 4px;
+    background: black;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.card .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  appearance: none;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: black;
+}
+
+.card.active .slider::-webkit-slider-thumb,
+.card.active .slider{
+    background-color: white;
+}
+
+
+.card.active path{
     fill: white;
 }
 
-button#rain.active{
+#card-rain.active{
     background-color: var(--bg-card-rain);
 }
 
-button#florest.active{
+#card-florest.active{
     background-color: var(--bg-card-florest);
 }
 
-button#coffee.active{
+#card-coffee.active{
     background-color: var(--bg-card-coffee);
 }
 
-button#fire.active{
+#card-fire.active{
     background-color: var(--bg-card-fire);
+}
+
+
+/*Dark Mode ================================================*/
+
+body.dark{
+    background-color: var(--bg-dark)
+}
+
+body.dark .col-a .timer span{
+    color: var(--text-color-dark);
+}
+
+body.dark .card{
+    background-color: var(--bg-default-dark);
+}
+
+body.dark .card path{
+    fill: var(--bg-icon-dark);
+}
+
+body.dark .card.active path{
+    fill: white;
+}
+
+body.dark .card .slider{
+    background-color: white;
+}
+
+body.dark .card .slider::-webkit-slider-thumb{
+    background-color: white;
+}
+
+body.dark .control-buttons path{
+    fill: var(--bg-icon-dark);
+}
+
+body.dark #set path,
+body.dark #pause path{
+    fill: var(--bg-icon-dark);
+}
+
+body.dark #pause rect{
+    fill: var(--bg-icon-dark)
 }
 
 
@@ -115,6 +217,12 @@ button#fire.active{
         grid-template-areas: 'A B';
         gap: 19.2rem;
         margin-top: -3rem;
+    }
+
+    .mode{
+        position: absolute;
+        top: 6rem;
+        right: 6rem;
     }
 
     .col-a{

@@ -3,6 +3,16 @@ import {
     buttonRain,
     buttonCoffee,
     buttonFire,
+
+    buttonVolumeFlorest,
+    buttonVolumeRain,
+    buttonVolumeCoffee,
+    buttonVolumeFire,
+
+    cardFlorest,
+    cardRain,
+    cardCoffee,
+    cardFire,
     } from './elements.js'
 
 export default function(){
@@ -16,10 +26,9 @@ export default function(){
     const buttonPressAudio = new Audio('./assets/audio/audios_button-press.wav')
     const timeEndAudio = new Audio('./assets/audio/audios_kichen-timer.mp3')
     
-    function playAndStopSound(bgAudio){
+    function playAndStopSound(bgAudio, volume){
         let array = [bgAudioFlorest, bgAudioRain, bgAudioCoffee, bgAudioFire]
-    
-        
+     
         array.forEach((audio) => {
             if(audio == bgAudio){
                 bgAudio.loop = true
@@ -31,39 +40,39 @@ export default function(){
     }
     
     function turnOnFlorestSound(){
-        buttonFlorest.classList.toggle('active')
-        buttonRain.classList.remove('active')
-        buttonCoffee.classList.remove('active')
-        buttonFire.classList.remove('active')
+        cardFlorest.classList.toggle('active')
+        cardRain.classList.remove('active')
+        cardCoffee.classList.remove('active')
+        cardFire.classList.remove('active')
     
         playAndStopSound(bgAudioFlorest)
     }
     
     function turnOnRainSound(){
-        buttonRain.classList.toggle('active')
-        buttonFlorest.classList.remove('active')
-        buttonCoffee.classList.remove('active')
-        buttonFire.classList.remove('active')
+        cardRain.classList.toggle('active')
+        cardFlorest.classList.remove('active')
+        cardCoffee.classList.remove('active')
+        cardFire.classList.remove('active')
     
         playAndStopSound(bgAudioRain)
     }
     
     
     function turnOnCoffeeSound(){
-        buttonCoffee.classList.toggle('active')
-        buttonFlorest.classList.remove('active')
-        buttonRain.classList.remove('active')
-        buttonFire.classList.remove('active')
+        cardCoffee.classList.toggle('active')
+        cardFlorest.classList.remove('active')
+        cardRain.classList.remove('active')
+        cardFire.classList.remove('active')
     
         playAndStopSound(bgAudioCoffee)
     }
     
     
     function turnOnFireSound(){
-        buttonFire.classList.toggle('active')
-        buttonFlorest.classList.remove('active')
-        buttonRain.classList.remove('active')
-        buttonCoffee.classList.remove('active')
+        cardFire.classList.toggle('active')
+        cardFlorest.classList.remove('active')
+        cardRain.classList.remove('active')
+        cardCoffee.classList.remove('active')
     
         playAndStopSound(bgAudioFire)
     }
@@ -76,12 +85,42 @@ export default function(){
         timeEndAudio.play()
     }
 
+    function volumeFlorest(){
+        if(!bgAudioFlorest.paused){
+            bgAudioFlorest.volume = buttonVolumeFlorest.value / 100
+        }
+    }
+
+    function volumeRain(){
+        if(!bgAudioRain.paused){
+            bgAudioRain.volume = buttonVolumeRain.value / 100
+        }
+    }
+
+    function volumeCoffee(){
+        if(!bgAudioCoffee.paused){
+            bgAudioCoffee.volume = buttonVolumeCoffee.value / 100
+        }
+    }
+
+    function volumeFire(){
+        if(!bgAudioFire.paused){
+            bgAudioFire.volume = buttonVolumeFire.value / 100
+        }
+    }
+
+
+
 
     return{
         turnOnFlorestSound,
         turnOnRainSound,
         turnOnCoffeeSound,
         turnOnFireSound,
+        volumeFlorest,
+        volumeRain,
+        volumeCoffee,
+        volumeFire,
 
         buttonPress,
         timeEnd
