@@ -6,7 +6,7 @@ A timer to apply learning methodologies like pomodoro. The project has backgroun
 - ``CSS``
 - ``JS``
 
-## :sunglasses: Preview
+## :dark_sunglasses: Preview
 To access the live preview of this project, just click on this [link](https://leandro4silva.github.io/focus-timer2.0/).
 
 <p align=center>
