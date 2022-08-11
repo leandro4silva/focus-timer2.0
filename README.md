@@ -1,4 +1,4 @@
-# Timer Focus
+# Focus Timer
 A timer to apply learning methodologies like pomodoro. The project has background sounds that help with concentration.
 
 ## ✔️  Technologies
