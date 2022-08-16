@@ -1,5 +1,5 @@
 # Focus Timer
-A timer to apply learning methodologies like pomodoro. The project has background sounds that help with concentration.
+An application that will apply the pomodoro methodology. User can select some of the relaxing audios to play during studies.
 
 ## ✔️  Technologies
 - ``HTML``
